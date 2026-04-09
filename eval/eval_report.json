@@ -1,0 +1,101 @@
+{
+  "tool_accuracy_pct": 25.0,
+  "response_quality_pct": 100.0,
+  "keyword_hit_rate_pct": 100.0,
+  "overall_score_pct": 75.0,
+  "avg_latency_s": 3.13,
+  "cases": [
+    {
+      "id": 1,
+      "description": "Create a fitness goal",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 3.7481470108032227,
+      "response_len": 664,
+      "tools_called": [],
+      "expected_tool": "add_goal"
+    },
+    {
+      "id": 2,
+      "description": "Log progress on existing goal",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 2.222393274307251,
+      "response_len": 514,
+      "tools_called": [],
+      "expected_tool": "log_progress"
+    },
+    {
+      "id": 3,
+      "description": "Check goal status",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 1.4850449562072754,
+      "response_len": 324,
+      "tools_called": [],
+      "expected_tool": "get_status"
+    },
+    {
+      "id": 4,
+      "description": "Search for habit-building tips",
+      "tool_ok": true,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 5.3861939907073975,
+      "response_len": 1063,
+      "tools_called": [
+        "search_web"
+      ],
+      "expected_tool": "search_web"
+    },
+    {
+      "id": 5,
+      "description": "Request weekly summary",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 2.4701528549194336,
+      "response_len": 601,
+      "tools_called": [],
+      "expected_tool": "generate_weekly_summary"
+    },
+    {
+      "id": 6,
+      "description": "Create a reading goal",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 2.4559969902038574,
+      "response_len": 613,
+      "tools_called": [],
+      "expected_tool": "add_goal"
+    },
+    {
+      "id": 7,
+      "description": "Log reading progress",
+      "tool_ok": false,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 1.2136270999908447,
+      "response_len": 275,
+      "tools_called": [],
+      "expected_tool": "log_progress"
+    },
+    {
+      "id": 8,
+      "description": "Ask for motivation strategies",
+      "tool_ok": true,
+      "quality_ok": true,
+      "kw_hit": true,
+      "latency": 6.057960033416748,
+      "response_len": 1365,
+      "tools_called": [
+        "search_web"
+      ],
+      "expected_tool": "search_web"
+    }
+  ]
+}
