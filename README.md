@@ -1,6 +1,6 @@
 # Resolution Tracker
 
-An AI-powered goal tracking companion that helps you set, journal, and reflect on personal resolutions — with an agent that plans what to do with each message instead of just reacting to keywords.
+An AI-powered goal tracking companion that helps you set, journal, and reflect on personal resolutions — with an agent that plans what to do with each message and helps you achieve your resolutions.
 
 ## Motivation
 
@@ -117,23 +117,19 @@ The loop runs up to 10 iterations. Each tool result is appended to the conversat
 
 ## Why this is agentic
 
-Logging a run via an API call isn't an agent. A fixed decision tree isn't either. What makes this agentic:
-
 1. **Claude plans before acting.** The system prompt instructs it to think about what each message actually needs before calling any tool. The same input — "I went for a run today" — might trigger just `log_progress`, or `get_status → log_progress`, or `get_status → log_progress → search_web` depending on context.
 
 2. **Goal creation requires clarification.** If the user says "I want to run more," the agent asks follow-up questions (how often? what distance? why now?) before calling `add_goal`. It won't add a fuzzy goal. This is a decision Claude makes, not a hardcoded rule.
 
 3. **Reflections chain multiple tools.** A weekly check-in triggers `generate_weekly_summary` plus `get_reflections` for every goal that has journal entries, then synthesizes a response that references both the data and the user's own words.
 
-4. **Claude decides when to stop.** The loop runs until Claude returns a text response with no tool call. There's no fixed number of steps.
-
-5. **Context carries across turns.** Every conversation is stored per-goal, so when the user comes back a week later and says "not great honestly," the agent can look at the goal's history and understand what they're referring to.
+4. **Context carries across turns.** Every conversation is stored per-goal, so when the user comes back a week later and says "not great honestly," the agent can look at the goal's history and understand what they're referring to.
 
 ## Evaluation
 
-### What I'm testing
+### Testing strategy
 
-The eval needs to answer three separate questions, because each one is a different way the agent can fail:
+The evaluation should answer 3 different questions (i.e. ways the agent can fail):
 
 1. Did the agent pick the right tools for the input?
 2. Does the agent always return a substantive response (not a one-liner)?
@@ -156,7 +152,7 @@ The eval needs to answer three separate questions, because each one is a differe
 
 ### Metrics
 
-| Metric | What it checks | How |
+| Metric | Purpose | How |
 |---|---|---|
 | **Tool Accuracy** | Did the agent call the expected tool? | Boolean match — was the expected tool in the list of tools called for that turn? |
 | **Response Quality** | Is the response substantive? | Response must exceed 30 characters. Catches empty or one-word answers. |
