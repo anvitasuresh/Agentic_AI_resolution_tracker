@@ -213,7 +213,7 @@ def load_goals():
             "frequency": g["frequency"], "target": g["target"],
             "created_at": g["created_at"],
             "streak": streak, "best_streak": best,
-            "total_logs": len(logs), "consistency": consistency,
+            "total_logs": sum(l["value"] for l in logs if l["value"] is not None), "consistency": consistency,
             "logs": logs, "logged_dates": logged_dates,
             "journals": [{"text": j["text"], "date": j["written_at"]} for j in journals],
         })
