@@ -251,7 +251,7 @@ def six_week_data(logs):
 
 def week_count(logs):
     today = datetime.now().date(); mon = today - timedelta(days=today.weekday())
-    return sum(1 for l in logs if _pd(l["logged_at"]) >= mon)
+    return sum(l["value"] for l in logs if _pd(l["logged_at"]) >= mon and l["value"] is not None)
 
 def circle_svg(color: str, size=44) -> str:
     """Concentric circles icon (no emoji)."""
@@ -609,13 +609,14 @@ with right:
         </div>""", unsafe_allow_html=True)
 
     for msg in chat["messages"]:
+        safe_content = msg['content'].replace('$', '&#36;')
         if msg["role"] == "assistant":
             st.markdown(f"""
             <div style="background:rgba(200,225,240,0.55);border-radius:14px;padding:12px 16px;margin-bottom:10px;
                         font-size:0.875rem;line-height:1.55;font-family:'Lora',serif;color:{DARK};">
               <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
                           color:{PRIMARY};margin-bottom:5px;font-family:'Lora',serif;">Resi</div>
-              {msg['content']}
+              {safe_content}
             </div>""", unsafe_allow_html=True)
         else:
             st.markdown(f"""
@@ -624,7 +625,7 @@ with right:
                         color:{DARK};text-align:right;">
               <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
                           color:#A05040;margin-bottom:5px;font-family:'Lora',serif;text-align:right;">You</div>
-              {msg['content']}
+              {safe_content}
             </div>""", unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
