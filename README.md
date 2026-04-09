@@ -4,9 +4,9 @@ An AI-powered goal tracking companion that helps you set, journal, and reflect o
 
 ## Motivation
 
-I wanted to build something I'd actually use. Every resolution app I've tried has the same problem: you set a goal in January, log it a few times, and then the app just sits there. There's no feedback loop — nothing that actually holds you accountable or helps you understand *why* you're falling off.
+Every resolution app I've tried has the same problem: you set a goal in January, log it a few times, and then the app just sits there. There's no feedback loop — nothing that actually holds you accountable or helps you understand *why* you're falling off.
 
-The idea here was to make the tracking conversational. Instead of clicking buttons to log a run, you just tell it "I ran 35 minutes this morning, felt rough." Instead of reading a dashboard, you ask it how you're doing and it pulls the actual data before answering. The agent part matters because the same message might mean very different things depending on context — sometimes it needs to log progress, sometimes it needs to ask a question first, sometimes it should search for evidence-based advice and then log. A fixed if/else pipeline can't handle that.
+The idea here was to make the tracking conversational. Instead of clicking buttons to log a run, you just tell it "I ran 35 minutes this morning, felt rough." Instead of reading a dashboard, you ask it how you're doing and it pulls the actual data before answering. The agent part matters because the same message might mean very different things depending on context — sometimes it needs to log progress, sometimes it needs to ask a question first, sometimes it should search for evidence-based advice and then log. A fixed if/else pipeline can't handle that. With this tracker, you can set goals, log progress, ask questions about how to better approach your goal, journal how you're feeling, and get honest weekly reflections back.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ The idea here was to make the tracking conversational. Instead of clicking butto
 
 ```bash
 git clone <repo-url>
-cd Agentic_resolution_tracker
+cd Agentic_AI_resolution_tracker
 cp .env.example .env
 ```
 
