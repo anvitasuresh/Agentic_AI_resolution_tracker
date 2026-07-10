@@ -2,6 +2,9 @@
 
 An AI-powered goal tracking companion that helps you set, journal, and reflect on personal resolutions — with an agent that plans what to do with each message and helps you achieve your resolutions.
 
+
+![](Resolution-tracker-UI.png)
+
 ## Motivation
 
 Every resolution app I've tried has the same problem: you set a goal in January, log it a few times, and then the app just sits there. There's no feedback loop — nothing that actually holds you accountable or helps you understand *why* you're falling off.
